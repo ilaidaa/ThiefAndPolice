@@ -52,6 +52,7 @@ namespace ThiefAndPolice
 
 
 
+
             //Metod 1 i Person klassen ska bestämma vilken riktning P, T och C ska gå, den slumpar riktningarna
             private void RandomDirection() //private: gör att SetRandomDirection() endast kan anropas inom klassen där den är definierad (Person).
                                            //void:  Metoden returnerar inget värde. Den gör bara ett arbete (sätter en slumpmässig riktning för directionX och directionY).
@@ -91,6 +92,7 @@ namespace ThiefAndPolice
                                                  //Den tar in 2 int variabler
                                                  //maxX är bredden (antalet kolumner), och maxY är höjden (antalet rader) i rutnätet. 
             {
+                //Den här raden ser till att X uppdateras genom att lägga till en rörelse (directionX) och håller värdet inom en viss gräns (maxX). Om X blir större än gränsen börjar det om från noll.
                 X = (X + directionX + maxX) % maxX; //Meningen gör så att personen rör på sig hela tiden beroende på vilken riktning directionX har bestämts till i den första metoden
                                                     //X =: Detta tilldelar ett nytt värde till variabeln X, den finns i properties i Person klassen
                                                     //X: Nuvarande X-position för personen.
@@ -116,6 +118,10 @@ namespace ThiefAndPolice
                 }
             }
 
+
+
+
+            //Metod 3
             //Display är en metod som finns för att varje subklass ska döpa sina personer. När Display() anropas på ett polisobjekt, kommer "P" att visas på skärmen.
             //Metoden får alltså varje underklass visa en symbol (t.ex. "P", "T", eller "C") när Display() anropas.
             //Abstrakt betyder att metoden inte har någon kod i klassen där den skapas. Istället måste alla klasser som ärver från den abstrakta klassen skriva sin egen kod för metoden.
