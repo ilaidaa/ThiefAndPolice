@@ -68,6 +68,67 @@ namespace ThiefAndPolice
             newsFeed = new List<string>();
         }
 
+
+
+
+
+
+        //Metod 1
+        //Används för att ska en person men också bestämma personens position i x och y axeln.
+        private void AddPerson(Person person)
+        {
+            persons.Add(person); //persons: maskinen vet att det är en list för du har deklarerat det som en fält i TheCity klassen över konstruktorn       
+                                 //Add: betyder att man ska lägga till 
+                                 //persons.Add(person):  anropar listans Add-metod och lägger till objektet person i listan.
+            grid[person.X, person.Y] = person; //grid är rutnätet som redan definerats tidigare i TheCity klassen (rad 21)
+                                               //person.X: Detta representerar personens X-koordinat (den horisontella positionen) i staden.
+                                               //person.Y: Detta representerar personens Y-koordinat(den vertikala positionen) i staden. Varje person har alltså en X-och en Y-position som avgör var i staden(i rutnätet) de befinner sig.
+                                               //grid[person.X, person.Y]: Denna del av koden refererar till en specifik position i stadens grid(rutnät), baserat på personens X-och Y - koordinater.
+                                               //= person: Detta innebär att du placerar själva person - objektet i den specifika cellen på kartan, som motsvarar deras X - och Y - koordinater.
+
+        }
+
+
+
+
+
+
+
+
+        //Metod 2
+        public void AddNews(string news) //Jag döper meningen jag ska skriva till news i en string variabel så string news kan tex vara "polisen beslagtar tjuvens föremål"
+        {
+            newsFeed.Add(news); //newsFeed är en list som är private och finns längst upp i TheCity klassen därför används Add
+                                //Add lägger till i listan och det som läggs till här är meningen som ska skrivas ut när personerna i staden interagerar. Gör en interaktion metod
+            if (newsFeed.Count > maxNewsCount) //newsFeed.Count går igenom alla nyheter i listan
+                                               //MaxNewsCount bestämdes redan t max 3 i The City klassen längst upp
+                                               //kontrollerar om antalet nyheter i listan har överskridit detta maxvärde.
+            {
+                newsFeed.RemoveAt(0); // Ta bort den äldsta nyheten när max antal nyheter nås
+                                      // det står inte 1 för att man börjar i datavärlden från 0
+            }
+        }
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
 
 }
